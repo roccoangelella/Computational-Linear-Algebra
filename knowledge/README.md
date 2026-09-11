@@ -2,7 +2,7 @@
 
 This directory is the **study-complete semantic transcription** of the supplied Computational Linear Algebra course corpus. It is designed to be the first detailed layer read after `memory/CORE.md` and `docs/COURSE_MAP.md`.
 
-The main modules reconstruct the mathematical objects, definitions, formulas, algorithms, assumptions, convergence criteria, computational meaning, numerical caveats, laboratory implementation logic, and links to the relevant supplied sources. A second strict audit then added `knowledge/depth/` supplements wherever comparison against the official slides/labs found omitted material needed for deep understanding.
+The main modules reconstruct the mathematical objects, definitions, formulas, algorithms, assumptions, convergence criteria, computational meaning, numerical caveats, laboratory implementation logic, and links to the relevant supplied sources. Strict source-by-source audits then added `knowledge/depth/` supplements wherever comparison against the official slides/labs/transcripts found omitted material needed for deep understanding.
 
 ## Recommended order
 
@@ -22,7 +22,7 @@ The main modules reconstruct the mathematical objects, definitions, formulas, al
 
 ## Depth layer
 
-After reading a main module, check [`depth/README.md`](depth/README.md). Targeted supplements exist for Modules 0, 2, 3, 4, 5, 6, 9, 10 and 11. They restore details found missing in the second comparison with the official corpus, including polynomial interpolation/Lebesgue-Chebyshev-Runge theory, `PA=LU` and change of basis, sparse reorderings, explicit Householder/Givens constructions, sharper stationary convergence theorems, restarted/practical GMRES, cluster-validation metrics, QR convergence assumptions and SVD bidiagonalization.
+After reading a main module, check [`depth/README.md`](depth/README.md). Targeted supplements exist for Modules 0, 2, 3, 4, 5, 6, 8, 9, 10 and 11. They restore source-specific details that would otherwise be easy to lose in a compact semantic reconstruction, including polynomial interpolation/Lebesgue-Chebyshev-Runge theory, `PA=LU` and change of basis, sparse reorderings, explicit Householder/Givens constructions, sharper stationary convergence theorems, restarted/practical GMRES, the course's rank-one shifting versus Householder-deflation distinction, cluster-validation metrics, Gershgorin conditioning/Ritz bounds, QR convergence assumptions, and SVD existence/uniqueness plus bidiagonalization.
 
 The strict audit and its pass/fail criteria are recorded in [`../docs/DEEP_COVERAGE_AUDIT.md`](../docs/DEEP_COVERAGE_AUDIT.md).
 
