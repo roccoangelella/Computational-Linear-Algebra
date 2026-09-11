@@ -4,7 +4,7 @@ This repository is the canonical knowledge base for **Computational Linear Algeb
 
 ## Non-negotiable source policy
 
-When answering questions about the course, reason from this repository first and cite repository paths. Do not silently substitute generic textbook conventions when the course uses a specific definition, notation, algorithm, stopping criterion, or homework rule.
+When answering questions about the course, reason from this repository first and cite repository paths. Do not silently substitute generic textbook conventions when the course uses a specific definition, notation, algorithm, stopping criterion, or homework rule. A concrete example is Module 8: the course calls `A-lambda xx^T` **shifting** and teaches a separate Householder similarity/dimension-reduction procedure as **deflation**, even though external texts may use different terminology.
 
 Authority order when sources disagree:
 
@@ -29,7 +29,7 @@ For every substantive course question:
 7. If an exact course-specific statement is ambiguous or high stakes, follow provenance through `docs/SOURCE_COVERAGE.md` to the highest-authority source identity.
 8. Distinguish **course fact** (what is taught/required) from **background fact** (standard theory used to explain it).
 
-`docs/DEEP_COVERAGE_AUDIT.md` records the strict second-pass completeness audit and why the depth supplements exist.
+`docs/DEEP_COVERAGE_AUDIT.md` records the successive strict completeness audits, the residual gaps found by the fresh-archive third pass, and why the depth supplements exist.
 
 ## Explanation standard
 
