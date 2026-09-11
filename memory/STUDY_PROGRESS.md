@@ -71,3 +71,24 @@ comprehension check:
 
 mastery note:
 - CSR row-boundary semantics are understood; proceed without further elementary `indptr` drills unless needed later.
+
+## 2026-09-11 — Lecture 01, Step 4: CSC
+
+status: **verified**
+last-updated: **2026-09-11**
+source_paths:
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+
+topics studied:
+- CSC is the column-oriented analogue of CSR;
+- `data` stores nonzeros column by column;
+- `indices` stores row indices;
+- `indptr` marks column boundaries;
+- distinction between CSR and CSC semantics.
+
+comprehension check:
+- learner correctly constructed CSC `data` and `indptr` for the running matrix example;
+- one correction was made: CSC `indices` are row indices, yielding `[0,2,1,2,0]` for the example.
+
+mastery note:
+- CSC representation is understood well enough to proceed to structural sparse-matrix issues.
