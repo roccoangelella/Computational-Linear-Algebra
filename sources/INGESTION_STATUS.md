@@ -2,21 +2,47 @@
 
 Last updated: 2026-09-11
 
-## Completed
+## Study/semantic ingestion: COMPLETE
 
-- The supplied `CLA.zip` has been inventoried completely: **91 files**, about **161 MB** uncompressed.
-- Every original archive path, byte size, detected type and SHA-256 digest is recorded in `sources/MANIFEST.tsv`.
-- All 42 lecture transcripts have been mapped chronologically and semantically in `docs/LECTURE_INDEX.md`.
-- All supplied notebooks/labs are mapped in `docs/LAB_INDEX.md`.
-- Official slides, homework material, references and labs are routed by module in `docs/COURSE_MAP.md`.
-- Source authority, conflict resolution and provenance rules are defined in `docs/SOURCE_POLICY.md`.
+The supplied `CLA.zip` has been processed as a course knowledge corpus rather than only inventoried.
 
-## Raw-byte mirror
+Completed work:
 
-The large binary source artifacts are **not yet byte-for-byte mirrored into this Git history**. Several PDFs are tens of megabytes (the SVD deck is about 44.6 MB), so ordinary Git blobs are the wrong ingestion path for the complete archive. `.gitattributes` configures PDF and DAT files for **Git LFS**.
+- **91/91 files** inventoried and content-inspected.
+- Every original path, byte size, type and SHA-256 is recorded in `sources/MANIFEST.tsv`.
+- Every file is semantically accounted for in `docs/SOURCE_COVERAGE.md`.
+- All 42 lecture transcripts were read and routed chronologically/conceptually.
+- All 14 notebooks were parsed by cells/sections and mapped to their mathematical/implementation role.
+- All 26 PDFs were text/page inspected; handwritten eigenvalue slide decks were cross-reconstructed using the matching lecture transcripts because raw machine extraction of handwriting is imperfect.
+- CSV/DAT/code support files were inspected for schema, dimensions, format and course use. In particular, the current YPS homework data and Hollins PageRank graph structure are represented in the relevant modules.
+- The entire taught program is reconstructed into 13 detailed documents under `knowledge/modules/`, covering definitions, formulas, algorithms, assumptions, convergence ideas, numerical caveats, implementation logic and assessment connections.
+- `knowledge/README.md` is the entry point to this detailed corpus.
 
-A future byte mirror must preserve the original relative paths from `sources/MANIFEST.tsv` and verify each copied artifact against its recorded SHA-256. Until then, the manifest is the integrity/provenance ledger for the uploaded corpus, while `docs/` and `memory/` provide the navigational/semantic layer.
+For **ordinary study of the complete program**, the repository is now self-contained at the semantic level: an agent should not need to open the original binary PDFs simply to explain a topic from the syllabus.
 
-## Why this status is explicit
+## Raw-byte archive mirror: NOT COMPLETE
 
-A source-of-truth repository should distinguish **material actually present in Git** from **material merely catalogued elsewhere**. Derived summaries must never create the appearance that a raw source was committed when it was not. This file makes that boundary auditable.
+The repository still does **not** claim that every original binary/source byte is physically duplicated in Git history. The supplied archive is about 161 MB and contains large PDFs (the SVD slide deck alone is about 44.6 MB) and large raw datasets. `.gitattributes` is configured for Git LFS should a byte-for-byte archival mirror be desired.
+
+This distinction is deliberate:
+
+- **semantic completeness** means the full course/program can be studied and retrieved from the repository;
+- **archival completeness** means every original file is also stored byte-for-byte.
+
+The first is complete. The second remains optional/outstanding.
+
+## Representation rules
+
+- Course-specific current rules/definitions are preserved in the detailed module/assessment representations with source provenance.
+- Lecture transcripts are explanatory evidence and may contain speech-to-text errors; mathematical notation is cross-checked against written sources/standard structure when reconstructing the modules.
+- Large supporting literature is integrated as course-relevant theory rather than dumped verbatim as hundreds of pages of reference text.
+- Large datasets are represented by their structure, meaning and use; their original hashes remain in the manifest.
+- If an exact visual annotation, exact source wording or raw-data reproduction becomes necessary, the original archive identity can be recovered from `sources/MANIFEST.tsv` and `docs/SOURCE_COVERAGE.md`.
+
+## Retrieval consequence
+
+The normal retrieval path is now:
+
+`memory/CORE.md` -> `knowledge/modules/...` -> `docs/SOURCE_COVERAGE.md` / lecture-lab-assessment indexes.
+
+A raw-byte LFS mirror is not required for ordinary course explanations, derivations or exam preparation.
