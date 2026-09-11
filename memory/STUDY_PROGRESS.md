@@ -27,3 +27,24 @@ comprehension check:
 
 mastery note:
 - conceptual checkpoint passed after the above precision correction; implementation-level mastery will be tested while reconstructing sparse formats and sparse kernels.
+
+## 2026-09-11 — Lecture 01, Step 2: COO
+
+status: **verified**
+last-updated: **2026-09-11**
+source_paths:
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+
+topics studied:
+- COO/coordinate sparse representation;
+- one stored triplet `(row, column, value)` per nonzero entry;
+- structural positions are retained while explicit zero values are omitted;
+- zero-based indexing convention for computational arrays;
+- COO is natural for assembly/exchange from triplets.
+
+comprehension check:
+- learner indicated the representation is clear and can reconstruct rows directly from `(row, col, data)`;
+- one sign/value slip was corrected in the example: row 0 ended with `-2`, not `4`.
+
+mastery note:
+- basic COO representation considered understood; no further elementary reconstruction drills are needed unless later confusion appears.
