@@ -10,8 +10,9 @@ The repository is organized for two audiences at once: a human studying for the 
 2. [`docs/COURSE_MAP.md`](docs/COURSE_MAP.md) — complete module map and source routing.
 3. [`docs/CONCEPT_GRAPH.md`](docs/CONCEPT_GRAPH.md) — prerequisites, applications, and transcript search aliases.
 4. [`docs/LECTURE_INDEX.md`](docs/LECTURE_INDEX.md) — chronological map of all 42 transcript files.
-5. [`docs/ASSESSMENT.md`](docs/ASSESSMENT.md) — PageRank/PCA projects and exam retrieval path.
-6. [`AGENTS.md`](AGENTS.md) — mandatory retrieval/source-authority rules for AI agents.
+5. [`docs/LAB_INDEX.md`](docs/LAB_INDEX.md) — notebook/lab map linking implementations to mathematics.
+6. [`docs/ASSESSMENT.md`](docs/ASSESSMENT.md) — PageRank/PCA projects and exam retrieval path.
+7. [`AGENTS.md`](AGENTS.md) — mandatory retrieval/source-authority rules for AI agents.
 
 ## Course spine
 
@@ -21,7 +22,7 @@ The supplied corpus covers sparse matrices; Python/NumPy/SciPy tooling; linear-a
 
 Course evidence and derived memory are deliberately separated. Current official 2025/2026 material outranks lab notes, which outrank transcripts for exact formulas, while supplied external references provide background. Derived files in `docs/` and `memory/` are navigation/synthesis and must never silently override the evidence. See [`docs/SOURCE_POLICY.md`](docs/SOURCE_POLICY.md).
 
-The integrity ledger [`sources/MANIFEST.tsv`](sources/MANIFEST.tsv) records all 91 files from the supplied `CLA.zip` with byte sizes and SHA-256 hashes. Raw binary mirroring should preserve those hashes; normalized extracts must be labeled as representations rather than byte-identical originals.
+The integrity ledger [`sources/MANIFEST.tsv`](sources/MANIFEST.tsv) records all 91 files from the supplied `CLA.zip` with byte sizes and SHA-256 hashes. Raw binary mirroring should preserve those hashes; normalized extracts must be labeled as representations rather than byte-identical originals. The exact current boundary between catalogued and Git-mirrored material is recorded in [`sources/INGESTION_STATUS.md`](sources/INGESTION_STATUS.md).
 
 ## Why this layout
 
