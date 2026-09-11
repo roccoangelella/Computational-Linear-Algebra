@@ -4,73 +4,66 @@ This repository is the canonical knowledge base for **Computational Linear Algeb
 
 ## Non-negotiable source policy
 
-When answering a course question, reason from this repository first. Do not silently substitute generic textbook conventions when the course uses a specific notation, algorithm, stopping criterion, project rule or implementation workflow.
+When answering questions about the course, reason from this repository first and cite repository paths. Do not silently substitute generic textbook conventions when the course uses a specific definition, notation, algorithm, stopping criterion, or homework rule.
 
-The repository now contains a **study-complete semantic transcription** of the 91-file supplied corpus under `knowledge/`, together with file-level provenance in `docs/SOURCE_COVERAGE.md` and SHA-256 identities in `sources/MANIFEST.tsv`.
+Authority order when sources disagree:
 
-Authority when statements conflict:
+1. current official course/homework material represented and indexed by the repository;
+2. instructor notebooks/labs and supplied code;
+3. lecture transcripts, which have excellent coverage but may contain speech-to-text errors, especially names and mathematical symbols;
+4. supplied external references;
+5. derived `knowledge/`, `docs/` and `memory/` layers, which accelerate retrieval but never silently overrule higher-authority evidence.
 
-1. **Current official 2025/2026 course requirements and mathematical statements**, as reconstructed with provenance in the relevant `knowledge/modules/*.md` file and assessment/source-coverage documents.
-2. **Current instructor laboratory/notebook material**, which controls the intended computational workflow and allowed packages.
-3. **Lecture transcripts**, which are valuable explanatory evidence but can contain speech-to-text errors, especially mathematical symbols and names.
-4. **Supplied external references**, used for deeper background and verification.
-5. **Derived memory/navigation**, such as `memory/CORE.md` and high-level maps, which must never override a more specific source-backed statement.
-
-The large original binaries are not all byte-for-byte mirrored in Git. Do not claim that a raw PDF/notebook is physically present when it is only represented semantically. `sources/INGESTION_STATUS.md` is authoritative about that boundary.
+If a formula or theorem is supported only by transcript evidence, cross-check it against a written course source/reference when possible. If verification is impossible, explicitly mark it as transcript-derived.
 
 ## Retrieval procedure
 
 For every substantive course question:
 
-1. Read `memory/CORE.md` to recover the whole-course conceptual spine.
-2. Locate the topic in `docs/COURSE_MAP.md` and, when dependencies matter, `docs/CONCEPT_GRAPH.md`.
-3. Read the corresponding detailed file under `knowledge/modules/`. This is the main searchable mathematical study layer.
-4. Check the module's source list and `docs/SOURCE_COVERAGE.md` when a course-specific detail, lecture nuance, laboratory convention or source identity matters.
-5. For implementation questions, also read `docs/LAB_INDEX.md` and use the notebook/source roles recorded there and in the module.
-6. For PageRank/PCA/exam questions, always also read `docs/ASSESSMENT.md`; current project constraints must not be inferred from generic knowledge.
-7. For multi-topic questions, follow prerequisite/application links rather than retrieving only the lexically closest topic.
-8. Distinguish **course fact** (what this course teaches/requires) from **background fact** (standard theory used to explain it).
+1. Read `memory/CORE.md` for global orientation when the topic/prerequisites are not already active in context.
+2. Locate the topic in `docs/COURSE_MAP.md` and `docs/CONCEPT_GRAPH.md`.
+3. Read the corresponding `knowledge/modules/*.md` document.
+4. Check `knowledge/depth/README.md`; if that module has a supplement, read the supplement before constructing a deep answer.
+5. For multi-topic questions, follow prerequisite/application links rather than retrieving only the lexically closest file.
+6. For exam/homework questions, also read `docs/ASSESSMENT.md` and the relevant module/project material.
+7. If an exact course-specific statement is ambiguous or high stakes, follow provenance through `docs/SOURCE_COVERAGE.md` to the highest-authority source identity.
+8. Distinguish **course fact** (what is taught/required) from **background fact** (standard theory used to explain it).
 
-If an exact wording, equation transcription or administrative detail is not represented in the repository with enough certainty, say so rather than inventing it. The repository is study-complete semantically, not a claim that every source byte or every visual annotation has been reproduced verbatim.
+`docs/DEEP_COVERAGE_AUDIT.md` records the strict second-pass completeness audit and why the depth supplements exist.
 
 ## Explanation standard
 
-Explanations must be mathematically explicit and self-contained. Every introduced object should be briefly defined: dimensions, assumptions, meaning and role. Never rely on a named concept without recalling what it means.
+Explanations must be mathematically explicit and self-contained. Every introduced object should be briefly defined: dimensions, assumptions, meaning and role. For algorithms, state the target problem, assumptions, iteration/update, stopping criterion, convergence idea, computational cost at the level relevant to the course, and numerical caveats. For proofs, separate hypotheses, claim, key construction and conclusion. For code, connect each operation to the mathematical object it implements.
 
-For an algorithm, state:
+Do not assume that a named theorem or algorithm is already understood merely because it was mentioned earlier. Briefly recall what it says and why it is being used.
 
-- the target problem;
-- assumptions/structure exploited;
-- initialization;
-- iteration/update or factorization steps;
-- stopping criterion where applicable;
-- why the method is mathematically valid;
-- convergence condition/rate at the level taught in the course;
-- computational/storage cost at the level relevant to large-scale problems;
-- numerical caveats;
-- links to preceding/following course concepts.
+A deep answer should normally make the following distinctions explicit when relevant:
 
-For a proof, separate hypotheses, claim, key construction and conclusion. For code, connect each operation to the mathematical object it implements and check dimensions, residuals/reconstruction and tolerances.
+- exact mathematics versus floating-point implementation;
+- residual versus forward error;
+- existence/uniqueness versus conditioning;
+- convergence guarantee versus convergence speed;
+- dense complexity versus sparse/structured cost;
+- abstract linear map/subspace versus its coordinates/matrix representation;
+- theorem hypotheses versus informal rules of thumb.
 
 ## Memory model used in this repository
 
-The repository separates five layers:
+The repository deliberately separates four memory layers:
 
-- **Integrity/provenance memory**: `sources/MANIFEST.tsv` and `docs/SOURCE_COVERAGE.md`, identifying all 91 original artifacts and their roles.
-- **Semantic course memory**: `knowledge/modules/`, containing the detailed study reconstruction of the entire program.
-- **Navigation/graph memory**: `docs/COURSE_MAP.md`, `docs/CONCEPT_GRAPH.md`, lecture/lab indexes and assessment routing.
-- **Compact durable memory**: `memory/CORE.md`, which keeps only the global conceptual spine and must remain small.
-- **Working memory**: the few files retrieved for the current question; it is not persisted unless a validated durable insight should be added to the repository.
+- **Source memory**: provenance of the supplied course artifacts under `sources/` and `docs/SOURCE_COVERAGE.md`.
+- **Semantic memory**: stable concepts, modules, prerequisites and relationships under `knowledge/` and `docs/`.
+- **Episodic/study memory**: durable discoveries, misconceptions, solved patterns and corrections under `memory/`.
+- **Working memory**: the small set of files retrieved for the current question; it is not persisted unless validated and useful beyond one interaction.
 
-New durable notes should include provenance (`source_paths` or source identities), status (`verified`, `needs-check`, or `derived`) and date. Never promote an unverified inference into `memory/CORE.md`.
+New durable notes should include provenance (`source_paths`), status (`verified`, `needs-check`, or `derived`) and last-updated date. Never promote an unverified inference into `memory/CORE.md`.
 
 ## Repository invariants
 
-- Every original source identity is tracked in `sources/MANIFEST.tsv`.
-- `docs/SOURCE_COVERAGE.md` must account for all original files.
-- Detailed mathematical coverage belongs in `knowledge/modules/`, not in `memory/CORE.md`.
-- Derived notes must retain source provenance.
-- Conflicts are resolved by authority, not by deleting evidence.
-- Transcript recognition errors must not silently become formulas.
-- Exact assessment rules are treated as time-sensitive course facts and checked against the current 2025/2026 assessment representation.
-- Prefer meaningful headings/filenames and explicit terminology so GitHub lexical search remains effective.
+- Original source paths and SHA-256 hashes are tracked in `sources/MANIFEST.tsv`.
+- Every supplied source has a semantic routing entry in `docs/SOURCE_COVERAGE.md`.
+- Derived notes must preserve source provenance.
+- Duplicate or conflicting statements are not resolved by deletion; record the conflict and identify the higher-authority source.
+- Keep `memory/CORE.md` compact. Put detail in modules/depth documents and link to it.
+- Prefer one concept per section and meaningful filenames so lexical GitHub search remains effective.
+- Do not claim that the repository can guarantee mastery: it can provide sufficient course material, but mastery requires derivation, exercises, implementation and oral explanation by the learner.

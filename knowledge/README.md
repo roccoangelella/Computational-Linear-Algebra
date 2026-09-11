@@ -2,7 +2,7 @@
 
 This directory is the **study-complete semantic transcription** of the supplied Computational Linear Algebra course corpus. It is designed to be the first detailed layer read after `memory/CORE.md` and `docs/COURSE_MAP.md`.
 
-The documents do not merely list topics. Each module reconstructs the mathematical objects, definitions, formulas, algorithms, assumptions, convergence criteria, computational meaning, numerical caveats, laboratory implementation logic, and links to the relevant supplied sources. The goal is that the repository can support a complete study of the program without requiring the original binary PDFs to be opened for ordinary questions.
+The main modules reconstruct the mathematical objects, definitions, formulas, algorithms, assumptions, convergence criteria, computational meaning, numerical caveats, laboratory implementation logic, and links to the relevant supplied sources. A second strict audit then added `knowledge/depth/` supplements wherever comparison against the official slides/labs found omitted material needed for deep understanding.
 
 ## Recommended order
 
@@ -20,6 +20,12 @@ The documents do not merely list topics. Each module reconstructs the mathematic
 12. [`11-singular-value-decomposition.md`](modules/11-singular-value-decomposition.md)
 13. [`12-pagerank-project.md`](modules/12-pagerank-project.md)
 
+## Depth layer
+
+After reading a main module, check [`depth/README.md`](depth/README.md). Targeted supplements exist for Modules 0, 2, 3, 4, 5, 6, 9, 10 and 11. They restore details found missing in the second comparison with the official corpus, including polynomial interpolation/Lebesgue-Chebyshev-Runge theory, `PA=LU` and change of basis, sparse reorderings, explicit Householder/Givens constructions, sharper stationary convergence theorems, restarted/practical GMRES, cluster-validation metrics, QR convergence assumptions and SVD bidiagonalization.
+
+The strict audit and its pass/fail criteria are recorded in [`../docs/DEEP_COVERAGE_AUDIT.md`](../docs/DEEP_COVERAGE_AUDIT.md).
+
 ## How this layer relates to the sources
 
 The source corpus contains 91 files. `docs/SOURCE_COVERAGE.md` records how every file contributes to the study representation. `sources/MANIFEST.tsv` remains the byte-level provenance ledger. The hierarchy is:
@@ -28,9 +34,13 @@ The source corpus contains 91 files. `docs/SOURCE_COVERAGE.md` records how every
 - **labs/notebooks**: controls how the course implements and experiments with the algorithms;
 - **lecture transcripts**: preserve the instructors' explanations, motivation and sequencing, but may contain speech-to-text errors;
 - **supplied external references**: deepen theory and context;
-- **this `knowledge/` layer**: a verified semantic reconstruction for efficient study and retrieval.
+- **this `knowledge/` layer**: a source-indexed semantic reconstruction for efficient study and retrieval.
 
 When an exact wording, project constraint or ambiguous formula matters, follow the provenance links back to the corresponding source listed in each module and in `docs/SOURCE_COVERAGE.md`.
+
+## Retrieval rule for deep answers
+
+For a substantive question, retrieve the relevant main module and then its depth supplement if one exists. For multi-topic questions, also follow prerequisites in `docs/CONCEPT_GRAPH.md`. Only after recovering this local/global context should an answer be constructed.
 
 ## Notation conventions
 
