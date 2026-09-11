@@ -20,5 +20,10 @@ topics studied:
 - dense storage cost `O(mn)` versus sparse storage scaling with the number of stored nonzeros;
 - motivation for sparse matrix-vector products and iterative methods.
 
+comprehension check:
+- learner correctly explained why `nnz(A) << mn` can yield major savings and why the positions of nonzeros must still be encoded;
+- precision correction made: `nnz(A)` is a count, not a complexity class; operations that visit each stored nonzero are `O(nnz(A))`;
+- `O(mn)` becomes quadratic only in the square/comparable-dimension case, e.g. `m=n`, where it is `O(n^2)`.
+
 mastery note:
-- This records first-pass conceptual study only. Full mastery still requires reconstruction from examples, exercises, implementation, and oral explanation.
+- conceptual checkpoint passed after the above precision correction; implementation-level mastery will be tested while reconstructing sparse formats and sparse kernels.
