@@ -48,3 +48,26 @@ comprehension check:
 
 mastery note:
 - basic COO representation considered understood; no further elementary reconstruction drills are needed unless later confusion appears.
+
+## 2026-09-11 — Lecture 01, Step 3: CSR and `indptr`
+
+status: **verified**
+last-updated: **2026-09-11**
+source_paths:
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+
+topics studied:
+- CSR stores nonzeros row by row using `data`, `indices`, and `indptr`;
+- `data` contains nonzero values, `indices` their column indices;
+- `indptr` stores row-boundary positions in the flattened `data`/`indices` arrays;
+- row `i` is obtained from the slice `indptr[i]:indptr[i+1]`;
+- the number of nonzeros in row `i` is `indptr[i+1]-indptr[i]`;
+- equal consecutive `indptr` entries represent an empty row;
+- CSR is natural for row-wise sparse matrix-vector multiplication.
+
+comprehension check:
+- learner initially found `indptr` unclear;
+- after reframing it as the positions of separators between concatenated rows, learner confirmed understanding.
+
+mastery note:
+- CSR row-boundary semantics are understood; proceed without further elementary `indptr` drills unless needed later.
