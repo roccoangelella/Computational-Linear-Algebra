@@ -115,3 +115,42 @@ comprehension check:
 
 mastery note:
 - first-pass conceptual understanding recorded; later reordering examples will reinforce the link between sparsity pattern and fill-in.
+
+## 2026-09-12 — Lecture 02, Step 6: Bandwidth and symmetric permutation
+
+status: **verified**
+last-updated: **2026-09-12**
+source_paths:
+- `docs/LECTURE_INDEX.md`
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+
+topics studied:
+- bandwidth as `max |i-j|` over nonzero positions under the course convention;
+- distinction between number of nonzeros and spatial distribution of nonzeros;
+- simultaneous row/column reordering `A' = P A P^T`;
+- permutation as relabeling of variables/graph vertices rather than changing the underlying relationships;
+- explicit example reducing bandwidth from 2 to 1 by reordering `(1,2,3,4)` to `(1,3,2,4)`.
+
+comprehension check:
+- learner requested an explicit bandwidth-reducing permutation example and then chose to continue.
+
+mastery note:
+- first-pass bandwidth/reordering concept considered clear enough to proceed to algorithmic reorderings.
+
+## 2026-09-12 — Lecture 02, Step 7: Graph viewpoint and Cuthill-McKee
+
+status: **verified**
+last-updated: **2026-09-12**
+source_paths:
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+
+topics studied:
+- symmetric sparse matrix sparsity pattern interpreted as an undirected graph;
+- vertices correspond to matrix indices and off-diagonal nonzeros correspond to graph edges;
+- vertex degree as number of neighbors;
+- Cuthill-McKee as a breadth-first-like ordering that favors low-degree neighbors so connected vertices tend to receive nearby indices;
+- purpose: reduce or control bandwidth and improve sparse computational structure;
+- reverse Cuthill-McKee as reversed ordering, often useful for profile/fill behavior although improvement is problem-dependent.
+
+mastery note:
+- conceptual algorithm introduced with the same four-vertex path example used for manual permutation; no implementation-level mastery claimed yet.
