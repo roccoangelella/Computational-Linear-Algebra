@@ -92,3 +92,26 @@ comprehension check:
 
 mastery note:
 - CSC representation is understood well enough to proceed to structural sparse-matrix issues.
+
+## 2026-09-12 — Lecture 01, Step 5: Fill-in
+
+status: **verified**
+last-updated: **2026-09-12**
+source_paths:
+- `knowledge/modules/00-large-scale-and-sparse.md`
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+- `knowledge/modules/02-linear-algebra-and-direct-methods.md`
+
+topics studied:
+- fill-in as creation of new nonzero entries during Gaussian elimination/factorization;
+- elimination update can turn an originally zero position into a nonzero one;
+- a sparse input matrix does not guarantee sparse LU factors;
+- fill-in increases both memory and arithmetic cost;
+- sparsity pattern, not only `nnz(A)`, influences factorization cost;
+- pivot in Gaussian/Gauss-Jordan elimination recalled as the leading entry used as the elimination anchor.
+
+comprehension check:
+- learner requested and received a quick pivot recap, then chose to continue the sparse-matrix lecture.
+
+mastery note:
+- first-pass conceptual understanding recorded; later reordering examples will reinforce the link between sparsity pattern and fill-in.
