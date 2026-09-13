@@ -140,17 +140,31 @@ mastery note:
 ## 2026-09-12 — Lecture 02, Step 7: Graph viewpoint and Cuthill-McKee
 
 status: **verified**
-last-updated: **2026-09-12**
+last-updated: **2026-09-13**
 source_paths:
 - `knowledge/depth/00-sparse-formats-operations-reorderings.md`
 
 topics studied:
 - symmetric sparse matrix sparsity pattern interpreted as an undirected graph;
-- vertices correspond to matrix indices and off-diagonal nonzeros correspond to graph edges;
+- matrix row/column labels correspond to graph vertices and off-diagonal nonzeros correspond to graph edges;
 - vertex degree as number of neighbors;
-- Cuthill-McKee as a breadth-first-like ordering that favors low-degree neighbors so connected vertices tend to receive nearby indices;
-- purpose: reduce or control bandwidth and improve sparse computational structure;
+- Cuthill-McKee as a breadth-first-like ordering that favors low-degree neighbors so connected vertices tend to receive nearby positions;
+- ordering `[1,3,2,4]` means: take the old row/column labels in that new order; it does not mean the matrix entries themselves become `1,3,2,4`;
+- distinction between an old vertex label and its new position after permutation;
+- symmetric reordering applies the same permutation to rows and columns, equivalently `A' = P A P^T`;
+- explicit four-by-four example before reordering:
+  `[[1,0,1,0],[0,1,1,1],[1,1,1,0],[0,1,0,1]]`;
+- after ordering `(1,3,2,4)`, the matrix becomes
+  `[[1,1,0,0],[1,1,1,0],[0,1,1,1],[0,0,1,1]]`;
+- in that example, the bandwidth decreases from 2 to 1;
+- purpose of Cuthill-McKee: reduce or control bandwidth by finding a useful ordering automatically;
 - reverse Cuthill-McKee as reversed ordering, often useful for profile/fill behavior although improvement is problem-dependent.
 
+comprehension check:
+- learner initially did not understand the meaning of the graph labels / word `indices`;
+- explanation was rebuilt from the matrix itself, treating `1,2,3,4` first as row/column labels and then distinguishing those old labels from new positions;
+- learner then requested the matrix explicitly before and after the Cuthill-McKee ordering; that concrete example has now been recorded;
+- no explicit final confirmation of mastery has yet been given after the clarification.
+
 mastery note:
-- conceptual algorithm introduced with the same four-vertex path example used for manual permutation; no implementation-level mastery claimed yet.
+- concept has been studied and clarified, but do not assume mastery yet; verify understanding before moving beyond Cuthill-McKee if needed.
