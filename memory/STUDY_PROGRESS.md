@@ -168,3 +168,29 @@ comprehension check:
 
 mastery note:
 - concept has been studied and clarified, but do not assume mastery yet; verify understanding before moving beyond Cuthill-McKee if needed.
+
+## 2026-09-13 — Lecture 02, Step 8: Independent-set ordering
+
+status: **verified**
+last-updated: **2026-09-13**
+source_paths:
+- `knowledge/depth/00-sparse-formats-operations-reorderings.md`
+
+topics studied:
+- independent set as a set of graph vertices with no edges between any pair in the set;
+- translation to a symmetric sparse matrix: off-diagonal entries between independent-set variables are zero;
+- grouping independent-set vertices by a symmetric permutation can create a diagonal leading block;
+- explicit ordering `(1,3,5,2,4)` and corresponding permutation matrix `P`, its transpose `P^T`, and the meaning of `A' = P A P^T`;
+- left multiplication by `P` reorders rows and right multiplication by `P^T` applies the same ordering to columns;
+- permutation matrices satisfy `P^{-1}=P^T`;
+- block interpretation `[[D,B],[B^T,C]]` with diagonal `D` for the independent-set variables;
+- computational convenience: once the complementary variables are fixed, variables inside the independent set have no mutual dependencies and their updates can be computed independently or in parallel;
+- concrete parallel-update example using variables `x_1,x_3,x_5` and conceptual assignment to separate CPU cores.
+
+comprehension check:
+- learner asked to see the explicit `P` and `P^T`, indicating the algebraic action of the permutation was important for understanding;
+- learner then requested a concrete example of what 'process independently or in parallel' means;
+- after the explicit block/update example, learner chose to continue.
+
+mastery note:
+- independent-set motivation and induced block structure are understood well enough to proceed; algorithm-specific parallel implementations can be revisited later when stationary iterations or sparse kernels are studied.
