@@ -17,3 +17,6 @@ topics studied:
 
 mastery note:
 - First-pass explanation delivered; learner verification still required.
+
+clarification added:
+- If a column has multiple nonzero entries below the diagonal, one Givens rotation is applied per target entry, typically bottom-up. Each rotation is built from the current pair consisting of the pivot-like entry above and the target entry, so later rotations use values already changed by earlier ones.
