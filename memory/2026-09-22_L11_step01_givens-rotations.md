@@ -20,3 +20,5 @@ mastery note:
 
 clarification added:
 - If a column has multiple nonzero entries below the diagonal, one Givens rotation is applied per target entry, typically bottom-up. Each rotation is built from the current pair consisting of the pivot-like entry above and the target entry, so later rotations use values already changed by earlier ones.
+
+- Clarification on advancing to the second column: after column 1 is cleared, the current matrix must be used because previous rotations changed the remaining entries. For column 2 of a 3x3 matrix, only the entry in row 3 lies below the diagonal and must be eliminated. A new Givens rotation acts on rows 2 and 3, using the current pair (R[2,2], R[3,2]). Row 1 is not involved. Because rows 2 and 3 already contain zeros in column 1, mixing those rows preserves the zeros created in column 1. This is why a left-to-right Givens sweep can triangularize the matrix without undoing earlier work.
