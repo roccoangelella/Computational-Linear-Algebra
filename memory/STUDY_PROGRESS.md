@@ -194,3 +194,29 @@ comprehension check:
 
 mastery note:
 - independent-set motivation and induced block structure are understood well enough to proceed; algorithm-specific parallel implementations can be revisited later when stationary iterations or sparse kernels are studied.
+
+
+## 2026-09-23 — Direct methods: relation between Gaussian elimination and LU
+
+status: **verified**
+last-updated: **2026-09-23**
+source_paths:
+- `knowledge/modules/02-linear-algebra-and-direct-methods.md`
+- `knowledge/depth/02-foundations-lu-morphisms-change-of-basis.md`
+- uploaded deck `Lecture-1-GaussReduction-LU.pdf`
+
+topics studied:
+- Gaussian elimination and LU factorization are not two separate sequential algorithms; LU is Gaussian elimination with the elimination multipliers retained in `L`;
+- the elimination phase produces the upper-triangular factor `U`;
+- with pivoting, the reusable factorization is `PA=LU`;
+- solving from the factorization requires forward substitution `Ly=Pb` followed by backward substitution `Ux=y`;
+- plain Gaussian elimination applied directly to the augmented system `[A|b]` transforms `b` during elimination, so after reaching upper-triangular form only backward substitution remains;
+- dense Gaussian elimination/LU factorization costs `O(n^3)`, while each triangular solve costs `O(n^2)`;
+- factorization is useful because the `O(n^3)` work can be reused for multiple right-hand sides sharing the same matrix `A`.
+
+comprehension check:
+- learner correctly identified the main strategy as reducing the coefficient matrix to upper-triangular form and then using the standard triangular-system solve;
+- precision correction: factorization and Gaussian elimination should not be pictured as two separate phases both run to obtain `U`; the factorization is the recorded form of the elimination itself.
+
+mastery note:
+- high-level purpose of LU versus direct Gaussian elimination is understood; next step should reinforce the exact solve pipeline `PA=LU -> Ly=Pb -> Ux=y` with a small numerical example if needed.
