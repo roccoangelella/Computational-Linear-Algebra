@@ -52,3 +52,15 @@ gaps exposed by this checkpoint:
 status:
 - review remains **in progress**;
 - do not upgrade the exposed gaps to mastery until the learner re-derives them correctly.
+
+
+## Active review checkpoint — 2026-10-15: ELLPACK row encoding
+
+source: uploaded `Lecture2-DenseSparse(2).pdf`, pages 21–25, and course depth notes.
+
+Verified understanding:
+- For the second row `[2, 1, 0, 1]` of the slide-21 matrix, learner independently produced `COEF_2=[2,1,1]` and `JCOEF_2=[1,2,4]` (slides use 1-based indices).
+- Learner correctly recognized no padding is needed for this row because it has three nonzeros, the maximum row occupancy of the example matrix; other rows require padding to width three.
+
+Unresolved for next checkpoint:
+- Learner initially confused DIAG with MSR (separate main diagonal), while DIAG stores multiple populated diagonals with offsets. Need independent retrieval of DIAG offsets and values before recording mastery of DIAG.
