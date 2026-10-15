@@ -102,3 +102,12 @@ Successfully demonstrated:
 Nuance made explicit: the lecture's displayed pseudocode copies sums without an explicit zero check; discarding cancellation zeros is an added conditional for canonical zero-free COO output. Distinguish mathematical requirement from slide pseudocode.
 
 Next validation: learner to reconstruct final sorted COO arrays for the 3x3 addition example.
+
+
+## Active review checkpoint — 2026-10-15: CSR empty first row
+
+Source: uploaded `Lecture2-DenseSparse(2).pdf`, slides 15–16, and repository `knowledge/modules/00-large-scale-and-sparse.md`.
+
+Question raised by learner: for a 4x4 matrix with an entirely zero first row and a nonzero element at `(2,1)`, is `IA[1]` equal to 1 or 2? Clarification: course uses 1-based indexing, so `IA[1]=1` always; an empty first row means `IA[2]=IA[1]=1`. For the concrete case with only `a_{2,1}` nonzero, `IA=[1,1,2,2,2]`. These pointers are positions in the compressed data array, NOT matrix row numbers. Python/SciPy 0-based `indptr=[0,0,1,1,1]`.
+
+Comprehension status: explanation supplied; await independent learner recall before claiming this nuance mastered.
