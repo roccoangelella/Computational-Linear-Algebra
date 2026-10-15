@@ -147,3 +147,14 @@ Pending:
 Sources: uploaded `Lecture2-DenseSparse(2).pdf` slides 43–47; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
 
 Successfully demonstrated: learner independently answered `Bw(A')=1` after earlier correctly answering `Bw(A)=3`, for reordering `[1,4,2,3]` of `A=[[2,0,0,1],[0,2,1,1],[0,1,2,0],[1,1,0,2]]`. The permuted matrix is tridiagonal, so maximum index distance of any nonzero is 1. Numeric understanding of bandwidth in both arrangements is verified. Computational motivation of bandwidth reduction and Cuthill–McKee method still require independent explanation; do not claim mastery yet.
+
+
+## 2026-10-15 — Cuthill–McKee objective vs algorithm distinction
+
+Source: uploaded `Lecture2-DenseSparse(2).pdf`, slides 43–48; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Learner response: "The algorithm consists of finding among the various combinations of rows and columns the one that minimizes bandwidth." This shows correct identification of *objective*, but NOT mastery of the mechanism.
+
+Clarification provided: Cuthill–McKee is a heuristic, not an exhaustive optimizer. It starts from a minimum-degree vertex, visits/discovers its unvisited neighbors ordered by ascending degree, and processes the accumulated traversal breadth-first-like; resulting graph-vertex order gives simultaneous row/column permutation. Illustrated on previously studied graph path 1–4–2–3; starting at vertex 1 obtains [1,4,2,3] and reduces bandwidth 3→1.
+
+Next: independently test retrieval of degree-based neighbor sorting and queue-like visit ordering. Do not mark full mastery until learner produces algorithm steps.
