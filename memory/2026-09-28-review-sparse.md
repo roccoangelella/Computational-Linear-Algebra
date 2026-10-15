@@ -75,3 +75,18 @@ Demonstrated:
 - Correction: learner said three asterisks, but n=4 requires two, giving `[-2,1,*,*]^T`; explained the invalid hypothetical entries (3,5) and (4,6).
 
 Assessment: DIAG positive-offset concept substantially understood; pending follow-up retrieval for negative offsets and fixed-width precision. Do not record full DIAG mastery yet.
+
+
+## Active review checkpoint — 2026-10-15: COO addition conceptual rule
+
+Source: uploaded `Lecture2-DenseSparse(2).pdf`, slides 29–31; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Successfully demonstrated without hint:
+- Learner correctly stated that COO values arrays (`AA`) cannot be added elementwise unless the corresponding `(JR, JC)` coordinate pairs agree.
+- Learner correctly explained that coincident coordinates have values added, while entries present only in one input matrix must be carried into the output at their own coordinates.
+
+Remaining precision checks:
+- Verify elimination of cancelled zero entries, e.g. `5 + (-5) = 0` at `(3,2)` in the current example.
+- Verify ability to derive resulting sorted `AA`, `JR`, `JC` and describe index advances/linear merge complexity.
+
+Status: conceptual COO merge-addition rule verified; entire algorithm not yet marked mastered.
