@@ -140,3 +140,10 @@ Successfully demonstrated:
 
 Pending:
 - Independently identify `Bw(A')` after symmetric row/column permutation `[1,4,2,3]` and explain why reduced bandwidth matters computationally. Do not claim completed mastery of reordering until checked.
+
+
+## 2026-10-15 — Bandwidth recall, permuted matrix
+
+Sources: uploaded `Lecture2-DenseSparse(2).pdf` slides 43–47; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Successfully demonstrated: learner independently answered `Bw(A')=1` after earlier correctly answering `Bw(A)=3`, for reordering `[1,4,2,3]` of `A=[[2,0,0,1],[0,2,1,1],[0,1,2,0],[1,1,0,2]]`. The permuted matrix is tridiagonal, so maximum index distance of any nonzero is 1. Numeric understanding of bandwidth in both arrangements is verified. Computational motivation of bandwidth reduction and Cuthill–McKee method still require independent explanation; do not claim mastery yet.
