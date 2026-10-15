@@ -124,3 +124,8 @@ Teaching presented after user's question about performing operations with CSR (n
 - Explained cost as O(m+nnz) for 0-based row loop including empty rows.
 
 Status: explanation given; NO new mastery claim until learner independently derives or applies a step.
+
+
+## 2026-10-15 — Bandwidth active check
+
+Source: course notes `knowledge/depth/00-sparse-formats-operations-reorderings.md`, Lecture 2 slide 43. For the example A with nonzeros at (1,4)/(4,1), BW(A)=3; reordered A' tridiagonal has BW(A')=1. On being asked both bandwidths and computational purpose, learner answered `2!!!!!` alone, insufficient/incorrect for the example's maximum-distance bandwidth; explain maximum over all nonzeros and test with one short follow-up. Do not claim concept mastered until correct independent recall.
