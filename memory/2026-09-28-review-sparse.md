@@ -90,3 +90,15 @@ Remaining precision checks:
 - Verify ability to derive resulting sorted `AA`, `JR`, `JC` and describe index advances/linear merge complexity.
 
 Status: conceptual COO merge-addition rule verified; entire algorithm not yet marked mastered.
+
+
+## Active review checkpoint — 2026-10-15: COO cancellation
+
+Source: `Lecture2-DenseSparse(2).pdf`, slide 30 and COO definitions; repository `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Successfully demonstrated:
+- Learner immediately recognized that COO output should not retain the explicitly cancelled entry at `(3,2)` when `5+(-5)=0`, because the intended sparse representation stores only nonzero entries.
+
+Nuance made explicit: the lecture's displayed pseudocode copies sums without an explicit zero check; discarding cancellation zeros is an added conditional for canonical zero-free COO output. Distinguish mathematical requirement from slide pseudocode.
+
+Next validation: learner to reconstruct final sorted COO arrays for the 3x3 addition example.
