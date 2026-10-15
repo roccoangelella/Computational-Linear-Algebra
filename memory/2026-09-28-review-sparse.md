@@ -64,3 +64,14 @@ Verified understanding:
 
 Unresolved for next checkpoint:
 - Learner initially confused DIAG with MSR (separate main diagonal), while DIAG stores multiple populated diagonals with offsets. Need independent retrieval of DIAG offsets and values before recording mastery of DIAG.
+
+
+## Active review checkpoint — 2026-10-15: DIAG offset +2
+
+source: uploaded `Lecture2-DenseSparse(2).pdf`, slides 21–22; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Demonstrated:
+- Learner independently identified DIAG offset +2 entries `[-2,1]` and correctly reasoned that padding is required for the fixed-width rectangular `DIAG` storage.
+- Correction: learner said three asterisks, but n=4 requires two, giving `[-2,1,*,*]^T`; explained the invalid hypothetical entries (3,5) and (4,6).
+
+Assessment: DIAG positive-offset concept substantially understood; pending follow-up retrieval for negative offsets and fixed-width precision. Do not record full DIAG mastery yet.
