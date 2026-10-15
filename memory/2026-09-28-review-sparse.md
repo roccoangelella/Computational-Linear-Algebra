@@ -158,3 +158,16 @@ Learner response: "The algorithm consists of finding among the various combinati
 Clarification provided: Cuthill–McKee is a heuristic, not an exhaustive optimizer. It starts from a minimum-degree vertex, visits/discovers its unvisited neighbors ordered by ascending degree, and processes the accumulated traversal breadth-first-like; resulting graph-vertex order gives simultaneous row/column permutation. Illustrated on previously studied graph path 1–4–2–3; starting at vertex 1 obtains [1,4,2,3] and reduces bandwidth 3→1.
 
 Next: independently test retrieval of degree-based neighbor sorting and queue-like visit ordering. Do not mark full mastery until learner produces algorithm steps.
+
+
+## 2026-10-15 — Concrete Cuthill–McKee matrix walkthrough
+
+Source basis: uploaded Lecture 2 deck, slides 40–48, and `knowledge/depth/00-sparse-formats-operations-reorderings.md`. This 6x6 worked illustration is an assistant-constructed example, not copied from the deck.
+
+After learner accurately stated the bandwidth-minimization purpose but not the algorithm, a fully concrete example was demonstrated:
+- Matrix A rows: `[2,0,0,1,0,1]`, `[0,2,0,1,0,0]`, `[0,0,2,0,0,1]`, `[1,1,0,2,1,0]`, `[0,0,0,1,2,0]`, `[1,0,1,0,0,2]` (symmetric, connected adjacency graph).
+- Graph edges: (1,4), (1,6), (2,4), (3,6), (4,5). Degrees 1:2, 2:1, 3:1, 4:3, 5:1, 6:2.
+- Start at 2 (minimum degree); discover 4; from 4 visit unvisited neighbors 5 (degree 1) then 1 (degree 2); after processing 5 and 1, discover 6, then 3: order S=[2,4,5,1,6,3].
+- Simultaneous row/column permutation gives A' rows `[2,1,0,0,0,0]`, `[1,2,1,1,0,0]`, `[0,1,2,0,0,0]`, `[0,1,0,2,1,0]`, `[0,0,0,1,2,1]`, `[0,0,0,0,1,2]`; bandwidth drops from 5 to 2.
+
+Comprehension status: illustration provided at learner's request; await learner's own derivation/description of degree-prioritized queue traversal before claiming mastery.
