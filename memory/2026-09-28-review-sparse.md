@@ -129,3 +129,14 @@ Status: explanation given; NO new mastery claim until learner independently deri
 ## 2026-10-15 — Bandwidth active check
 
 Source: course notes `knowledge/depth/00-sparse-formats-operations-reorderings.md`, Lecture 2 slide 43. For the example A with nonzeros at (1,4)/(4,1), BW(A)=3; reordered A' tridiagonal has BW(A')=1. On being asked both bandwidths and computational purpose, learner answered `2!!!!!` alone, insufficient/incorrect for the example's maximum-distance bandwidth; explain maximum over all nonzeros and test with one short follow-up. Do not claim concept mastered until correct independent recall.
+
+
+## 2026-10-15 — Bandwidth recall, first matrix
+
+Source: uploaded `Lecture2-DenseSparse(2).pdf`, slides 43–47; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Successfully demonstrated:
+- For the review example `A=[[2,0,0,1],[0,2,1,1],[0,1,2,0],[1,1,0,2]]`, learner answered `Bw(A)=3` without a hint. This is correct because nonzero positions `(1,4)` and `(4,1)` have `|i-j|=3`.
+
+Pending:
+- Independently identify `Bw(A')` after symmetric row/column permutation `[1,4,2,3]` and explain why reduced bandwidth matters computationally. Do not claim completed mastery of reordering until checked.
