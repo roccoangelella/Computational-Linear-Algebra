@@ -111,3 +111,16 @@ Source: uploaded `Lecture2-DenseSparse(2).pdf`, slides 15–16, and repository `
 Question raised by learner: for a 4x4 matrix with an entirely zero first row and a nonzero element at `(2,1)`, is `IA[1]` equal to 1 or 2? Clarification: course uses 1-based indexing, so `IA[1]=1` always; an empty first row means `IA[2]=IA[1]=1`. For the concrete case with only `a_{2,1}` nonzero, `IA=[1,1,2,2,2]`. These pointers are positions in the compressed data array, NOT matrix row numbers. Python/SciPy 0-based `indptr=[0,0,1,1,1]`.
 
 Comprehension status: explanation supplied; await independent learner recall before claiming this nuance mastered.
+
+
+## 2026-10-15 — CSR matrix-vector operation explanation (pending recall)
+
+Basis: `Lecture2-DenseSparse(2).pdf`, slides 32–34; `knowledge/depth/00-sparse-formats-operations-reorderings.md`.
+
+Teaching presented after user's question about performing operations with CSR (not yet independently verified):
+- 0-based `data`, `indices`, `indptr` and row slice `[indptr[i], indptr[i+1])`.
+- Example A with rows `[0,0,0,0]`, `[7,0,2,0]`, `[0,-1,0,3]`, `[4,0,0,5]`, v=`[2,3,4,1]`; data=`[7,2,-1,3,4,5]`, indices=`[0,2,1,3,0,3]`, indptr=`[0,0,2,4,6]`.
+- Detailed row-by-row calculation yields `Av=[0,22,0,13]`; formula `w[i] += data[k]*v[indices[k]]` over row pointer interval.
+- Explained cost as O(m+nnz) for 0-based row loop including empty rows.
+
+Status: explanation given; NO new mastery claim until learner independently derives or applies a step.
