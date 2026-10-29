@@ -1,0 +1,15 @@
+# Lecture 5 — Part 11: Incremental GMRES, stopping, happy breakdown, restarting
+
+Date: 2026-10-29
+Status: explanation delivered; learner comprehension not independently verified
+Source: uploaded Lecture5-KrylovSpaces.pdf slides 45–50 and knowledge/modules/06-krylov-arnoldi-fom-gmres.md and knowledge/depth/06-krylov-projection-and-gmres-implementation.md.
+
+- Incremental GMRES: Arnoldi adds one Hessenberg column per iteration. Apply prior Givens rotations to only the new column, then compute one new Givens rotation to eliminate its newly introduced subdiagonal entry. Apply that same rotation to the small right-hand side. Store Givens pairs (c_i,s_i) rather than constructing full large orthogonal Q.
+- At iteration m, before the new rotation the last two right-hand-side entries are [gamma_m,0]. Thus after applying rotation [[c_m,s_m],[-s_m,c_m]], they become [c_m gamma_m,-s_m gamma_m]. The minimal residual norm equals |gamma_(m+1)|=|s_m| |gamma_m|, and gamma_1=beta=||r0||. With nested search spaces, unrestarted GMRES residual norms are nonincreasing in exact arithmetic. This rule gives residual from two scalars without forming high-dimensional x_m or r_m inside the iteration loop.
+- The stopping criterion compares the norm |gamma_(m+1)| with an absolute tolerance or an appropriately scaled tolerance. Once reached, solve upper triangular R_m y_m=g_m and construct x_m=x0+V_m y_m; explicitly check true residual periodically in finite precision if necessary.
+- Numerical repeated example A=[[4,0,1],[0,2,-1],[1,-1,3]], b=[1,1,0], beta=sqrt2. Iteration 1: s1=1/sqrt10, gamma2=-1/sqrt5, norm0.4472136. Iteration 2: s2=sqrt5/sqrt21, gamma3=1/sqrt21, norm0.2182179. Example tolerance 0.25: don't stop at iteration 1; stop at 2, use previous y2=[5sqrt2/14,-2sqrt2/21] and x2=[11/42,19/42,0]. At iteration 3, v3=[0,0,1], A v3=[1,-1,3], Arnoldi projection h13=0,h23=sqrt2,h33=3; remainder w3=0, so h43=0 and, for invertible A, exact solution x3=[2/9,5/9,1/9] and residual zero.
+- For nonsingular A in exact arithmetic, Arnoldi happy breakdown at step j means invariant Krylov space; since r0 belongs there and A maps it invertibly to itself, the correction solving Az=r0 lies there and GMRES exact residual is zero. The slide 49 hypothesis 'grade larger than j' conflicts with its own breakdown statement because grade=j at breakdown; flag rather than repeat as is. Unrestarted GMRES converges in at most n steps in exact arithmetic for nonsingular A.
+- Restarted GMRES(M): after at most M directions set new initial guess to current approximation, recompute its residual and restart Arnoldi; caps O(Mn) storage and growing orthogonalization cost but can slow or stagnate, especially for certain non-positive-definite problems. Discuss as tradeoff, not guarantee.
+- Important pedagogical difference: one cheap scalar residual check per iteration does not mean A is unused; each iteration still needs a matrix-vector product and orthogonalization. Numerical residual estimates can drift and practical implementation may verify actual norm.
+
+Next: Part 12 Householder techniques (slides 51–56). One part per user message.
